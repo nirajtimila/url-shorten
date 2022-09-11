@@ -6,6 +6,8 @@ const url = 'https://api.rebrandly.com/v1/links';
 const inputField = document.querySelector('#input');
 const shortenButton = document.querySelector('#shorten');
 const responseField = document.querySelector('#responseField');
+const copylinkButton = document.querySelector('#CopyLink');
+
 
 // Asynchronous functions
 const shortenUrl = () => {
@@ -41,3 +43,4 @@ const displayShortUrl = (event) => {
 }
 
 shortenButton.addEventListener('click', displayShortUrl);
+

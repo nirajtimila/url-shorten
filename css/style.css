@@ -6,7 +6,7 @@ header {
   
   main {
     
-    background: url('/logo/Purple\ and\ Peach\ Rainbow\ Waves\ Desktop\ Wallpaper\ \(1920\ ×\ 500px\).png');
+    background: url('/logo/main-img.png');
     height: 500px;
     width: 100%;
  
@@ -79,7 +79,34 @@ header {
     color: #ffffff;
     cursor: pointer;
   }
+
+
+    #CopyLink {
+    width: 91px;
+    height: 37px;
+    border-radius: 3.2px;
+    border: solid 0.8px #1f233e;
+    background-color: inherit;
+    margin-top: 48px;
+    font-family: Source Sans Pro;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #ffffff;
+    border-color: #ffffff;
+    margin-right: -3px;
+  }
+
+
+
   
+  #CopyLink:hover {
+    background-color: #000000;
+    border: solid 0.8px #4a4a4a;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
   #shorten:active {
     background-color: #ffffff;
     border: solid 0.8px #4a4a4a;
