@@ -13,34 +13,52 @@ const copylinkButton = document.querySelector('#CopyLink');
 const shortenUrl = () => {
   const urlToShorten = inputField.value;
   const data = JSON.stringify({destination: urlToShorten});
-  
-	fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-      'apikey': apiKey
-    },
-    body: data
-  }).then(response=>{
-      if(response.ok){
-        return response.json()
-      }
-      throw new Error('Request failed!')
+  if(inputField.value=""||inputField.value.length == 0 || inputField.value == null){
+    window.alert("Empty input !! Type your website");
+    inputField.value="Type your website here"
+    
+  }
+  else{
 
-  },networkError => {console.log(networkError.message)}
-  ).then(jsonResponse=>{
-     renderResponse(jsonResponse)
-  })
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        'apikey': apiKey
+      },
+      body: data
+    }).then(response=>{
+        if(response.ok){
+          return response.json()
+        }
+        throw new Error(window.alert("Invalid Website !! Please Check the Website and try again !!"),
+        responseField.innerHTML="<p>Invalid Website !! </p><p> Please Check the Website and try again !!</p>");
+        
+  
+    },networkError => {console.log(networkError.message)}
+    ).then(jsonResponse=>{
+       renderResponse(jsonResponse)
+    })
+    inputField.value=""
+    
+  
+  }
+
 }
 
 // Clear page and call Asynchronous functions
 const displayShortUrl = (event) => {
   event.preventDefault();
+  
   while(responseField.firstChild){
     responseField.removeChild(responseField.firstChild);
   }
+  
   shortenUrl();
+ 
+ 
 }
 
 shortenButton.addEventListener('click', displayShortUrl);
+
 
