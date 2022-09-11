@@ -5,7 +5,10 @@ const renderResponse = (res) => {
       responseField.innerHTML = "<p>Sorry, couldn't format your URL.</p><p>Try again.</p>";
     } else {  
       responseField.innerHTML = `<p>Your shortened url is: </p><p> ${res.shortUrl} </p>`;
+       copy.value = res.shortUrl
     }
+    console.log(res.shortUrl)
+    console.log(copy.value)
   }
   
   // Manipulates responseField to render an unformatted response
@@ -34,3 +37,14 @@ const renderResponse = (res) => {
     responseField.innerHTML = `<pre>${rawJson}</pre>`
   }
   
+  const copyText = ()=> {
+    /* Save value of myText to input variable */
+   
+   
+     /* Copy the text inside the text field */
+    navigator.clipboard.writeText(renderResponse.res.shortUrl);
+     
+    alert("Copied Text: " + input);
+  }
+
+ 

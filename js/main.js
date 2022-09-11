@@ -7,6 +7,7 @@ const inputField = document.querySelector('#input');
 const shortenButton = document.querySelector('#shorten');
 const responseField = document.querySelector('#responseField');
 const copylinkButton = document.querySelector('#CopyLink');
+const copy = document.querySelector("#copy");
 
 
 // Asynchronous functions
@@ -39,8 +40,9 @@ const shortenUrl = () => {
     ).then(jsonResponse=>{
        renderResponse(jsonResponse)
     })
+  
     inputField.value=""
-    
+   
   
   }
 
@@ -57,8 +59,27 @@ const displayShortUrl = (event) => {
   shortenUrl();
  
  
+ 
 }
 
-shortenButton.addEventListener('click', displayShortUrl);
+const handleClick = ()=> {
+  /* Save value of myText to input variable */
+  var input = copy.value;
+  console.log("coppied code: " + input)
+ 
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(input)
+  .then(() => {
+    alert("successfully copied");
+  })
+  .catch(() => {
+    alert("something went wrong");
+  });
+   
+  alert("Copied Text: " + input);
+}
 
+
+shortenButton.addEventListener('click', displayShortUrl);
+copylinkButton.addEventListener('click',handleClick);
 
