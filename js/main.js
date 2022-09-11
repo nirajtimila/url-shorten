@@ -66,7 +66,9 @@ const handleClick = ()=> {
   /* Save value of myText to input variable */
   var input = copy.value;
   console.log("coppied code: " + input)
- 
+   // Select the text field
+  input.select();
+  input.setSelectionRange(0, 99999);
    /* Copy the text inside the text field */
   navigator.clipboard.writeText(input)
   .then(() => {
