@@ -62,26 +62,58 @@ const displayShortUrl = (event) => {
  
 }
 
-const handleClick = ()=> {
+//const handleClick = ()=> {
   /* Save value of myText to input variable */
-  var input = copy.value;
-  console.log("coppied code: " + input)
-   // Select the text field
-  input.select();
-  input.setSelectionRange(0, 99999);
-   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(input)
-  .then(() => {
-    alert("successfully copied");
-  })
-  .catch(() => {
-    alert("something went wrong");
-  });
+   //var input = copy.value;
+  
+    /* Copy the text inside the text field */
+  
+  //  input.focus();
+  //  input.select();
+  //  input.setSelectionRange(0, 99999);
+  //  console.log("coppied code: " + input)
+  //  navigator.clipboard.writeText("xyz")
+  //  .then(() => {
+
+  //  })
+  //  .catch(() => {
+  //    alert("something went wrong");
+  //  });
    
-  alert("Copied Text: " + input);
+  //  alert("Copied Text: " + input);
+
+  //copy.select()
+  //document.execCommand("copy");
+ //}
+
+  function myFunction() {
+
+  copy.select();
+  copy.setSelectionRange(0, 99999);
+  responseField.value="Nothing to copy";
+  
+    navigator.clipboard.writeText(copy.value)
+    .then(() => {
+      copylinkButton.innerHTML ="Copied";
+     
+      
+      
+   })
+   .catch(() => {
+     alert("something went wrong");
+   });
+  
+  
+  
 }
 
 
+     
 shortenButton.addEventListener('click', displayShortUrl);
-copylinkButton.addEventListener('click',handleClick);
-
+//copylinkButton.addEventListener('click',handleClick);
+document.body.addEventListener("click", function (evt) {
+  console.dir(this);
+  //note evt.target can be a nested element, not the body element, resulting in misfires
+  console.log(evt.target);
+  copylinkButton.innerHTML ="Copy Link";
+});
